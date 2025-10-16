@@ -47,22 +47,7 @@ tmux source ~/.tmux.conf
 
 ---
 
-## 📦 4. Install Plugins
-
-Add plugins to your `~/.tmux.conf` file like this:
-
-```bash
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-```
-
-Then press your **prefix key + I**  
-(that’s a capital “I”, as in *Install*) to download and activate them.
-
----
-
-## 🧠 Prefix Key
+## 🧠 4. Prefix Key
 
 The default prefix key in this config is set to:
 ```
@@ -74,6 +59,21 @@ If you prefer something else (like the default `Ctrl + b`), update this line in 
 ```bash
 set -g prefix C-s
 ```
+
+---
+
+## 📦 5. Install Plugins
+
+Add plugins to your `~/.tmux.conf` file like this:
+
+```bash
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+```
+
+Then press your **prefix key + I**  
+(that’s a capital “I”, as in *Install*) to download and activate them.
 
 ---
 
@@ -90,15 +90,53 @@ set -g prefix C-s
 
 ---
 
+## 🖋️ 6. Fixing Font & Icon Rendering (Nerd Font Setup)
+
+Sometimes icons or glyphs in the status bar may not render correctly.  
+To fix this, install a **Nerd Font** such as *FiraCode Nerd Font* or *MesloLGS NF*.
+
+### 🪄 Install Nerd Font (Example with MesloLGS NF)
+
+Download the Meslo Nerd Font directly from the official Nerd Fonts release page:
+
+[📥 Download Meslo Nerd Font (v3.4.0)](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip)
+
+Then install it with the following commands:
+
+```bash
+# Create font directory
+mkdir -p ~/.local/share/fonts
+
+# Download and unzip your Nerd Font (example: Meslo)
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Meslo.zip
+unzip Meslo.zip -d MesloNerdFont
+
+# Copy the font files to your local fonts directory
+cp MesloNerdFont/*.ttf ~/.local/share/fonts/
+
+# Rebuild font cache
+fc-cache -fv
+```
+
+After installation, update your terminal emulator’s font settings to use:
+```
+MesloLGS NF
+```
+
+> 💡 Tip: For best compatibility with Tmux, Powerline, and Neovim icons, **MesloLGS NF** is highly recommended.
+
+---
+
 ## 🖥️ Demo Preview
 
 ![Tmux_Demo](https://github.com/Anganba/ImagesHostedOnGitHub/blob/1b5523a21bcb9b26acd348def8a813b9a2097ca8/tmux.png)
+
 
 ---
 
 ## ✅ You’re Good to Go!
 
-Your Tmux is now fully configured with TPM support.  
+Your Tmux is now fully configured with TPM support and beautiful Nerd Font icons.  
 Plugins are stored in:
 ```
 ~/.tmux/plugins/
